@@ -1,4 +1,5 @@
-/* 
+/* NOT USED 
+
 Auth Code
 
 Note: On original feature branch, these authentication elements were spread throughout multiple files (hence the module.exports syntax).
