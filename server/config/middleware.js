@@ -1,16 +1,17 @@
-var morgan = require('morgan'); //used for logging incoming request
-var bodyParser = require('body-parser');
+var morgan = require('morgan'), //used for logging incoming request
+  bodyParser = require('body-parser'),
+  helpers = require ('./helpers.js');
 
 var request = require('request');
 var qs = require('querystring');
+var User = require('../users/userModel.js');
 var logger = require('morgan');
 var jwt = require('jwt-simple');
 var moment = require('moment');
 var colors = require('colors');
 
-var helpers = require ('./helpers.js');
-var User = require('../users/userModel.js');
-var config = require('./config');
+// check to see if in prod and if it is then pull from a different set of variables
+var config = require('./config.js');
 
 module.exports = function ( app, express ) {
   var userRouter = express.Router();
