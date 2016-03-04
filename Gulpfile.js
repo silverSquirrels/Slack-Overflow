@@ -64,6 +64,7 @@ gulp.task('watch', function() {
 // any changes made to your
 // client side code will automagically refresh your page
 // with the new changes
+// BUGGY:
 gulp.task('start', ['serve'], function () {
   bs({
     notify: true,
