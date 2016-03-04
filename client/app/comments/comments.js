@@ -45,6 +45,11 @@ angular.module('hackoverflow.comments', [
     return false;
   }
 
+  $scope.codeStart = function(comment){
+    console.log(comment.indexOf('```'));
+    return comment.indexOf('```');
+  }
+
   $scope.getComments();
 
 });
