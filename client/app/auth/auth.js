@@ -16,6 +16,7 @@ angular.module('hackoverflow.auth', [
         Auth.getUser()
           .then(function(response){
             $rootScope.user = response.data.displayName;
+            $rootScope.picture = response.data.picture;
           });
         $state.go('posts');
       })
