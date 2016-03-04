@@ -14,19 +14,21 @@ angular.module('hackoverflow.posts', [
   $scope.TimeService = TimeService;
   /// add boolean to control whether or not to filter posts
   /// so when user lands on page or clicks 'all forums / homepage' all posts are listed
-  $scope.filterToggler = true;
-  $scope.enableFilter = function() {
-    $scope.filterToggler  = false;
-    console.log('bool', $scope.filterToggler);
+  $scope.forumSelected = false; // a.k.a disableFilter
+  $scope.forumSelect = function() {
+    $scope.forumSelected  = true;
+    console.log('bool', $scope.forumSelected);
   };
-  $scope.disableFilter = function() {
-    $scope.filterToggler = true;
+  $scope.forumDeselect = function() {
+    $scope.forumSelected = false;
+    console.log($scope.forumSelected)
   };
 
   $scope.getPosts = function getPosts(forum) {
     // TODO: need to pass in forum to Posts.getPosts()
     Posts.getPosts('').then(function (data) {
       $scope.posts = data.data;
+      console.log($scope.posts)
       // this creates an object $scope.numberOfComments that
       // keeps track of each posts number of comments. not
       // ideal, but works. need to refactor how we go
