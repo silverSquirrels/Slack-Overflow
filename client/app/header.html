@@ -5,7 +5,7 @@
     <div class="title">
       <a ui-sref="posts">
         <img id="logo" src="../assets/images/logo.png" width="40" />
-        <h1>Hack Overflow</h1>
+        <h1>Slack Overflow</h1>
       </a>
     </div>
 
@@ -13,6 +13,7 @@
         <a ui-sref="add-post">Ask a Question</a>
 
         <a onClick="location.reload();">Logout</a> ({{$root.user}})
+        <img class="user-thumbnail" src={{$root.picture}} />
       </nav>
 
   </div>
