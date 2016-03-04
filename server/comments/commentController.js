@@ -33,7 +33,7 @@ module.exports = {
      if (err) { 
        return next(err);
      }
-
+     // The request body contains a whole post ... ?
      request.post.comments.push(comment);
 
      request.post.save(function(err, post) {

@@ -1,15 +1,15 @@
-var morgan = require('morgan'), //used for logging incoming request
-  bodyParser = require('body-parser'),
-  helpers = require ('./helpers.js');
+var morgan = require('morgan'); //used for logging incoming request
+var bodyParser = require('body-parser');
 
 var request = require('request');
 var qs = require('querystring');
-var User = require('../users/userModel.js');
 var logger = require('morgan');
 var jwt = require('jwt-simple');
 var moment = require('moment');
 var colors = require('colors');
 
+var helpers = require ('./helpers.js');
+var User = require('../users/userModel.js');
 var config = require('./config');
 
 module.exports = function ( app, express ) {
