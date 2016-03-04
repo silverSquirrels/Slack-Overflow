@@ -24,18 +24,21 @@
     </div>
 
     <br />
-
+  
+  <div class="box">
     <div  class="forum">
-      <div ng-if="forumSelected">
+      <div ng-show="forumSelected">
         {{ forum }}
       </div>
     </div>
-
-    <div class="forum">
-      <div ng-if="!forumSelected">
+  </div>
+  <div class="box">
+    <div class="forum questions-text">
+      <div ng-hide="forumSelected">
         All Questions
       </div>
     </div>
+  </div>
 
     <!-- a link to go back to all forums -->
     <div class="forums">

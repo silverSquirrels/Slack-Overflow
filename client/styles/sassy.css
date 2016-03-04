@@ -3,3 +3,9 @@
   width: 45px;
   height: 45px;
   vertical-align: middle; }
+
+a {
+  cursor: pointer; }
+
+.questions-text {
+  margin-top: -18px !important; }
