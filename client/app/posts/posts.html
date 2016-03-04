@@ -5,7 +5,7 @@
   <div class="posts" ng-repeat="post in posts |
     orderBy:'-post.created':true |
     filter: searchFor |
-    filter: (!filterToggler || undefined) && { forum: forum }">
+    filter: (forumSelected || undefined) && { forum: forum }">
     <!-- filter: { forum: forum } -->
     <!-- filter: (!disableFilter || '') && filterExpression -->
 
@@ -25,13 +25,29 @@
 
     <br />
 
+    <div  class="forum">
+      <div ng-if="forumSelected">
+        {{ forum }}
+      </div>
+    </div>
+
     <div class="forum">
-      {{ forum }}
+      <div ng-if="!forumSelected">
+        All Questions
+      </div>
+    </div>
+
+    <!-- a link to go back to all forums -->
+    <div class="forums">
+      <p>
+        <a ng-click="forumDeselect()">All Questions</a>
+      </p>
     </div>
 
     <div class="forums" ng-repeat="forum in forums">
+
       <p>
-        <a ng-click="switchForum(forum); enableFilter()">{{ forum }}</a>
+        <a ng-click="switchForum(forum); forumSelect()">{{ forum }}</a>
       </p>
     </div>
 
