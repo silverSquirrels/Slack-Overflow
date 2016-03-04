@@ -11,6 +11,7 @@ var moment = require('moment');
 var colors = require('colors');
 
 // check to see if in prod and if it is then pull from a different set of variables
+
 if(process.env.NODE_ENV === 'production') {
   var config = {
    MONGO_URI: process.env.MONGOLAB_URI,
