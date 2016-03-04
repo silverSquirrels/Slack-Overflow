@@ -11,7 +11,16 @@ var moment = require('moment');
 var colors = require('colors');
 
 // check to see if in prod and if it is then pull from a different set of variables
-var config = require('./config.js');
+if(process.env.NODE_ENV === 'production') {
+  var config = {
+   MONGO_URI: process.env.MONGOLAB_URI,
+   TOKEN_SECRET: process.env.TOKEN_SECRET,
+   GITHUB_SECRET: process.env.GITHUB_SECRET
+  };
+} else {
+  var config = require('./config.js');
+}
+
 
 module.exports = function ( app, express ) {
   var userRouter = express.Router();
