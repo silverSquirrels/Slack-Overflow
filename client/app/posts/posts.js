@@ -12,6 +12,16 @@ angular.module('hackoverflow.posts', [
   $scope.numberOfComments = {};
   $scope.forum = ForumService.currentForum.model.forum;
   $scope.TimeService = TimeService;
+  /// add boolean to control whether or not to filter posts
+  /// so when user lands on page or clicks 'all forums / homepage' all posts are listed
+  $scope.filterToggler = true;
+  $scope.enableFilter = function() {
+    $scope.filterToggler  = false;
+    console.log('bool', $scope.filterToggler);
+  };
+  $scope.disableFilter = function() {
+    $scope.filterToggler = true;
+  };
 
   $scope.getPosts = function getPosts(forum) {
     // TODO: need to pass in forum to Posts.getPosts()
