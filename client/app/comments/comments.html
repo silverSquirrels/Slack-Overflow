@@ -29,7 +29,7 @@
   <div>
       <div class="comment" ng-repeat="comment in comments | filter:searchFor">
       <!--where comments get rendered -->
-        <div ng-if="comment.body.substring(0,3) === '```'" >
+        <div ng-if="hasCode(comment.body)" >
           <pre><code ng-bind="comment.body.substring(3)"></code></pre>
         </div>
         <p ng-if="comment.body.substring(0,3) !== '```'" ng-bind="comment.body"></p>

@@ -38,5 +38,13 @@ angular.module('hackoverflow.comments', [
     $scope.getComments();
   };
 
+  $scope.hasCode = function(comment){
+    if(comment.indexOf('```') !== -1){
+      return true;
+    }
+    return false;
+  }
+
   $scope.getComments();
+
 });
