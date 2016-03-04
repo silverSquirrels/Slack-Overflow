@@ -2,8 +2,8 @@
 
 var gulp      = require('gulp'),
     nodemon   = require('gulp-nodemon'),
-    bs        = require('browser-sync'),
-    reload    = bs.reload,
+    //bs        = require('browser-sync'),
+    //reload    = bs.reload,
     when      = require('gulp-if'),
     shell     = require('gulp-shell');
 /// added in legacy:
@@ -65,19 +65,19 @@ gulp.task('watch', function() {
 // client side code will automagically refresh your page
 // with the new changes
 // BUGGY:
-gulp.task('start', ['serve'], function () {
-  bs({
-    notify: true,
-    // address for server,
-    injectChanges: true,
-    files: paths.scripts.concat(paths.html, paths.styles),
-    proxy: 'localhost:8000'
-  });
-});
+// gulp.task('start', ['serve'], function () {
+//   bs({
+//     notify: true,
+//     // address for server,
+//     //injectChanges: true,
+//     files: paths.scripts.concat(paths.html, paths.styles),
+//     proxy: 'localhost:8000'
+//   });
+// });
 
 // start our node server using nodemon
 gulp.task('serve', function () {
   nodemon({script: './server/server.js', ignore: 'node_modules/**/*.js'});
 });
 
-gulp.task('default', ['watch', 'start', 'index', 'scripts', 'styles', 'sass']);
+gulp.task('default', ['watch', 'serve', 'index', 'scripts', 'styles', 'sass']);
