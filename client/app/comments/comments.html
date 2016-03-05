@@ -16,7 +16,7 @@
     <p ng-bind="post.body"></p>
 
     <p class="info">
-      <span ng-bind="post.author"></span> -
+      <span ng-bind="post.author"></span> - <img class="user-thumbnail" ng-src="{{post.picture}}" /> -
       {{ TimeService.relativeDate(post.created) }}
       <span class="num-comments"> {{ comments.length }} Comment {{ + comments.length !== 1 ? 's' : '' }} </span>
     </p>

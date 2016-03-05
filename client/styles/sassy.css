@@ -1,8 +1,12 @@
-.user-thumbnail {
+.user-thumbnail, .smaller {
   border-radius: 50%;
   width: 45px;
   height: 45px;
   vertical-align: middle; }
+
+.smaller {
+  width: 35px;
+  height: 35px; }
 
 a {
   cursor: pointer; }
