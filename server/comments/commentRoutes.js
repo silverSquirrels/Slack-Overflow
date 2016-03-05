@@ -45,4 +45,5 @@ app.param('post', function (req, res, next, id) {
     // app.put('/:id', commentController.editComment);
     app.put('/:id')
     app.delete('/:post/comments/:comment', commentController.deleteComment);
+    app.post('/:post/comments/:comment', commentController.addToVotes);
 };
