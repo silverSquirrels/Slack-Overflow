@@ -17,6 +17,14 @@ angular.module('hackoverflow.comments', [
   $scope.newCommentBody = '';
   $scope.theUser = $rootScope.user;
   $scope.TimeService = TimeService;
+  
+  // Voting
+  $scope.votes = 1;
+  $scope.upVote = function() {
+    $scope.votes += 1;
+  };
+  
+  //
 
   $scope.getComments = function getComments() {
     Comments.getComments($scope.post._id).then(function(data) {
