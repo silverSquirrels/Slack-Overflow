@@ -8,7 +8,8 @@ angular.module('hackoverflow', [
   'ngRoute',
   'ngSanitize',
   'satellizer',
-  'hackoverflow.auth'
+  'hackoverflow.auth',
+  'btford.markdown'
 ])
 
 .run(function($rootScope, $auth) {
@@ -81,4 +82,15 @@ angular.module('hackoverflow', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     });
+})
+.directive('markdown', function () {
+    var converter = new Showdown.converter();
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var htmlText = converter.makeHtml(element.text());
+            element.html(htmlText);
+        }
+    };
+
 });
