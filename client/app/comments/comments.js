@@ -10,6 +10,7 @@ angular.module('hackoverflow.comments', [
   function ($scope, $rootScope, $stateParams, $state, Comments,
     Posts, TimeService) {
   $scope.comments = [];
+  console.log('$stateParams', $stateParams)
   $scope.post = $stateParams.post;
   $scope.comment = $stateParams.comment;
   $scope.newCommentBody = '';

@@ -5,6 +5,7 @@ var PostSchema = new mongoose.Schema({
 	author: String,
 	title: String,
 	body: String,
+	picture: String,
 	created: {
 		type: Date,
 		default: Date.now
