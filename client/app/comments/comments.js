@@ -20,6 +20,7 @@ angular.module('hackoverflow.comments', [
     Comments.getComments($scope.post._id).then(function(data) {
       $scope.comments = data.data;
     });
+    hljs.initHighlightingOnLoad();
   };
 
   $scope.deleteComment = function deleteComment(postId, commentId) {
@@ -37,18 +38,6 @@ angular.module('hackoverflow.comments', [
     $scope.newCommentBody = '';
     $scope.getComments();
   };
-
-  $scope.hasCode = function(comment){
-    if(comment.indexOf('```') !== -1){
-      return true;
-    }
-    return false;
-  }
-
-  $scope.codeStart = function(comment){
-    console.log(comment.indexOf('```'));
-    return comment.indexOf('```');
-  }
 
   $scope.getComments();
 

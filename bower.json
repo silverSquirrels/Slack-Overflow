@@ -16,6 +16,7 @@
     "angular-ui-router": "^0.2.18",
     "moment": "^2.11.2",
     "angular-sanitize": "^1.5.0",
-    "satellizer": "^0.14.0"
+    "satellizer": "^0.14.0",
+    "angular-markdown-directive": "~0.3.1"
   }
 }
