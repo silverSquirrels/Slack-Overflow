@@ -1,7 +1,11 @@
 <div ng-include="'app/header.html'"></div>
 
 <div id="comments-container">
-
+  
+  <button type="submit">
+    <a ui-sref="posts">Go Back</a>
+  </button>
+  
   <div class="search comments-search">
     <input ng-model="searchFor" placeholder="Search"/>
   </div>

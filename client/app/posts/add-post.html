@@ -1,7 +1,11 @@
 <div ng-include="'app/header.html'"></div>
 
 <div id="add-post-container">
-
+  
+  <button type="submit">
+    <a ui-sref="posts">Go Back</a>
+  </button>
+    
   <form name="addPostForm"
         ng-submit="submit()">
 
@@ -24,7 +28,7 @@
                 ng-disabled="addPostForm.$invalid"
                 ng-Class="(title && forum !== 'Please choose a forum') ?
                 'buttonEnabled' : 'buttonDisabled'">
-                Ask a Quesiton</button>
+                Ask a Question</button>
     </div>
 
   </form>
