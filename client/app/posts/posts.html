@@ -12,7 +12,7 @@
     <a ui-sref="comments({post: post})">
       <h2 ng-bind="post.title"></h2></a>
       <p>
-        <span ng-bind="post.author"></span> -
+        <span ng-bind="post.author"></span> - <img class="smaller" ng-src="{{post.picture}}" /> -
         {{ TimeService.relativeDate(post.created) }}
         <span class="num-comments"> {{ numberOfComments[post._id] }} Comment{{ + numberOfComments[post._id] !== 1 ? 's' : '' }}</span>
       </p>

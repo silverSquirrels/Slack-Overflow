@@ -1,20 +1,23 @@
-// $variable-color: linen;
-// $var2: teal;
+$width-thumb: 45px;
+$height-thumb: 45px;
 
-// body {
-//   background-color: $variable-color;
-
-//   a {
-//     color: $var2;
-//   }
-// }
+$diff: 10px;
 
 .user-thumbnail {
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: $width-thumb;
+  height: $height-thumb;
   vertical-align: middle;
+
+} 
+
+.smaller {
+  @extend .user-thumbnail;
+  width: $width-thumb - $diff;
+  height: $height-thumb - $diff;
+
 }
+
 
 a {
   cursor: pointer;

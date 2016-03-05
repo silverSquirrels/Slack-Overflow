@@ -10,7 +10,9 @@ angular.module('hackoverflow.comments', [
   function ($scope, $rootScope, $stateParams, $state, Comments,
     Posts, TimeService) {
   $scope.comments = [];
+  console.log('$stateParams', $stateParams)
   $scope.post = $stateParams.post;
+  // this starts out undefined...does it ever get set?
   $scope.comment = $stateParams.comment;
   $scope.newCommentBody = '';
   $scope.theUser = $rootScope.user;

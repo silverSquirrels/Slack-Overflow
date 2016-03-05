@@ -21,8 +21,8 @@ angular.module('hackoverflow.add-post', [
   };
   
   $scope.submit = function () {
-    Posts.createPost($scope.title, $scope.body, $scope.forum,
-      $rootScope.user, new Date());
+      Posts.createPost($scope.title, $scope.body, $scope.forum,
+      $rootScope.user, new Date(), $rootScope.picture);
     $state.go('posts', { 'forum': $scope.forum });
   };
   

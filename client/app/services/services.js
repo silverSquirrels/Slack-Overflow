@@ -24,13 +24,15 @@ angular.module('hackoverflow.services', [])
       });
     };
 
-  var createPost = function(title, body, forum, author, created) {
+  var createPost = function(title, body, forum, author, created, picture) {
+    console.log('SERVICES', picture)
     var newPost = {
       title: title,
       body: body,
       forum: forum,
       author: author,
-      created: created
+      created: created,
+      picture: picture
     };
     console.log('create post: ', newPost);
     return $http({

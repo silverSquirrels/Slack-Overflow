@@ -26,6 +26,7 @@ module.exports = {
     post.title = request.body.title;
     post.author = request.body.author;
     post.body = request.body.body;
+    post.picture = request.body.picture;
 
     post.save(function(err, post) {
      if(err) {

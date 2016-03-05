@@ -152,6 +152,7 @@ app.post('/auth/github', function(req, res) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
             }
+            console.log('PROFILE',profile);
             user.github = profile.id;
             user.picture = user.picture || profile.avatar_url;
             user.displayName = user.displayName || profile.name;
