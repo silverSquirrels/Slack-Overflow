@@ -20,8 +20,11 @@ angular.module('hackoverflow.comments', [
   
   // Voting
   $scope.votes = 1;
-  $scope.upVote = function() {
-    this.votes += 1;
+  $scope.upVote = function(commentId) {
+    Comments.upVote(commentId)
+      .then(function(data) {
+        
+      })
   };
   
   //

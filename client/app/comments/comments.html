@@ -46,7 +46,7 @@
           <div class='votes'> Hard-coded: {{votes}} </div>
           <div> From DB: {{ comment.votes }}</div>
           <div class='vote'>
-            <div class='up-vote' ng-click='upVote()'>Up Vote</div>
+            <div class='up-vote' ng-click='upVote(comment._id)'>Up Vote</div>
           </div>
         </div>
         

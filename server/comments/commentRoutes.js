@@ -43,5 +43,6 @@ app.param('post', function (req, res, next, id) {
     app.get('/:post/commentsNumber', commentController.getNumberOfComments);
     app.post('/:post/comments', commentController.newComment);
     // app.put('/:id', commentController.editComment);
+    app.put('/:id')
     app.delete('/:post/comments/:comment', commentController.deleteComment);
 };

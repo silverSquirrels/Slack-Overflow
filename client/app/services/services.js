@@ -117,6 +117,13 @@ angular.module('hackoverflow.services', [])
     });
   };
 
+  var upVote = function(commentId) {
+    return $http({
+      method: 'PUT',
+      url: '/api/comments/' + commentId
+    });
+  };
+
   // no edit comments for now. v2.
   // var editComment = function(commentId) {
   //   return $http({
@@ -137,6 +144,7 @@ angular.module('hackoverflow.services', [])
     getComments: getComments,
     createComment: createComment,
     getNumberOfComments: getNumberOfComments,
+    upVote: upVote,
     // editComment: editComment,
     deleteComment: deleteComment
   };
