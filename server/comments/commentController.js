@@ -55,8 +55,26 @@ module.exports = {
       }
       response.json({ message: 'Successfully deleted' });
     });
-    }
+    },
 
+  addToVotes: function (request, response, next) {
+    console.log('req: ', request.body);
+    Comment.findOne({
+      _id: request.params.comment
+    })
+    .exec(function (err, foundComm) {
+      if (err) {
+        next(new Error(err)); 
+      }
+      console.log('foundComm: ',foundComm);
+      console.log('votes: ', foundComm.votes);
+      foundComm.votes.addToSet(request.body.user);
+      foundComm.save();
+      console.log('votes: ', foundComm.votes);
+      response.status(202).send(foundComm.votes);
+    });
+    
+  }
   // TODO
   //function ( request, response, next ) {
   //   var comment = new Post.comments.push(request.body);

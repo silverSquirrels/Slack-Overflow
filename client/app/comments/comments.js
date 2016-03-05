@@ -17,9 +17,22 @@ angular.module('hackoverflow.comments', [
   $scope.newCommentBody = '';
   $scope.theUser = $rootScope.user;
   $scope.TimeService = TimeService;
+  
+  // Voting
+  //$scope.votes = 0;
+  $scope.upVote = function(postId, commentId, user) {
+    // console.log('commentId: ', commentId);
+    // console.log('postId: ', postId);
+    // console.log('user: ', user);
+    Comments.upVote(postId, commentId, user);
+    //console.log('this.votes: ', this.votes);
+  };
+  
+  //
 
   $scope.getComments = function getComments() {
     Comments.getComments($scope.post._id).then(function(data) {
+      // console.log('getComments Data: ', data);
       $scope.comments = data.data;
     });
     hljs.initHighlightingOnLoad();

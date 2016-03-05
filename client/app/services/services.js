@@ -117,6 +117,18 @@ angular.module('hackoverflow.services', [])
     });
   };
 
+  var upVote = function(postId, commentId, user) {
+    //console.log('commentID: ',commentId);
+    console.log('user: ', user);
+    var userObj = { user: user };
+    console.log('userObj: ', userObj);
+    return $http({
+      method: 'POST',
+      url: '/api/post/' +postId + '/comments/' + commentId,
+      data: userObj
+    });
+  };
+
   // no edit comments for now. v2.
   // var editComment = function(commentId) {
   //   return $http({
@@ -127,6 +139,8 @@ angular.module('hackoverflow.services', [])
   // };
 
   var deleteComment = function(postId, commentId) {
+    console.log('commentID: ',commentId);
+
     return $http({
       method: 'DELETE',
       url: '/api/post/' + postId + '/comments/' + commentId
@@ -137,6 +151,7 @@ angular.module('hackoverflow.services', [])
     getComments: getComments,
     createComment: createComment,
     getNumberOfComments: getNumberOfComments,
+    upVote: upVote,
     // editComment: editComment,
     deleteComment: deleteComment
   };

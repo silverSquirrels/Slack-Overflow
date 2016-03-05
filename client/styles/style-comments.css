@@ -49,3 +49,11 @@
   font-weight: 800;
   color: #f00;
 }
+/* Voting Styling */
+.votes, .vote {
+  display: inline-block;
+}
+.vote {
+  vertical-align: middle;
+}
+

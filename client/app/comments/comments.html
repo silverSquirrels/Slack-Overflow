@@ -33,6 +33,7 @@
   <div>
       <div class="comment" ng-repeat="comment in comments | filter:searchFor">
       <div btf-markdown="comment.body"></div>
+
         <p class="info"><span ng-bind="comment.author"></span> -
           {{ TimeService.relativeDate(comment.created) }}
         </p>
@@ -40,6 +41,27 @@
         <div ng-if="theUser === comment.author">
           <span class="edit-delete" ng-click="deleteComment(post._id, comment._id)">DELETE</span>
         </div>
+        
+        <div>
+          <span ng-click="upVote(post._id, comment._id, $root.user)"> Vote </span>
+          <span> Votes Length: {{ comment.votes.length }} </span>
+        </div>
+        
+        <!-- <div class='vote-box'>
+          <div class='votes'> 
+            Hard-coded: {{votes}} 
+          </div>
+          <div> 
+            From DB: {{ comment.votes }}
+          </div>
+          <div class='vote'>
+            <div class='up-vote' ng-click='upVote(post._id, comment._id)'>
+              Up Vote
+            </div>
+          </div>  
+        </div> -->
+        
+        <!-- End of ng-repeat -->
       </div>
   </div>
 
