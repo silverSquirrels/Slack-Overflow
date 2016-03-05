@@ -7,7 +7,11 @@ var CommentSchema = new mongoose.Schema({
       created: {
         type: Date,
         default: Date.now
-      }
+      },
+  votes: {
+    type: Number,
+    default: 1
+  }
 });
 
 module.exports = mongoose.model('Comment', CommentSchema);

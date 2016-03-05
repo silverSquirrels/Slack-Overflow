@@ -21,7 +21,7 @@ angular.module('hackoverflow.comments', [
   // Voting
   $scope.votes = 1;
   $scope.upVote = function() {
-    $scope.votes += 1;
+    this.votes += 1;
   };
   
   //
