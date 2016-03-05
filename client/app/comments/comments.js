@@ -20,6 +20,7 @@ angular.module('hackoverflow.comments', [
     Comments.getComments($scope.post._id).then(function(data) {
       $scope.comments = data.data;
     });
+    hljs.initHighlightingOnLoad();
   };
 
   $scope.deleteComment = function deleteComment(postId, commentId) {
