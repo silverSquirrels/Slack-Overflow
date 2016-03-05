@@ -34,6 +34,7 @@
     "request": "^2.34.0"
   },
   "dependencies": {
+    "angular-highlightjs": "^0.5.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.4.3",
     "colors": "1.1.2",
