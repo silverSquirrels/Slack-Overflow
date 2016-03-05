@@ -33,6 +33,7 @@
   <div>
       <div class="comment" ng-repeat="comment in comments | filter:searchFor">
       <div btf-markdown="comment.body"></div>
+
         <p class="info"><span ng-bind="comment.author"></span> -
           {{ TimeService.relativeDate(comment.created) }}
         </p>
@@ -40,6 +41,15 @@
         <div ng-if="theUser === comment.author">
           <span class="edit-delete" ng-click="deleteComment(post._id, comment._id)">DELETE</span>
         </div>
+        </section>
+        <div class='vote-box'>
+          <div class='votes'> 10 </div>
+          <div class='vote'>
+            <div class='up-vote'>Up Vote</div>
+            <div class='down-vote'>Down Vote</div>
+          </div>
+        </div>
+        
       </div>
   </div>
 
