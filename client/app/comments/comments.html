@@ -31,7 +31,7 @@
   </div>
 
   <div>
-      <div class="comment" ng-repeat="comment in comments | orderBy: 'comments.votes.length' | filter:searchFor">
+      <div class="comment" ng-repeat="comment in comments | orderBy: 'comment.votes.length' | filter:searchFor">
       <div btf-markdown="comment.body"></div>
 
         <p class="info"><span ng-bind="comment.author"></span> -
