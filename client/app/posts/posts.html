@@ -20,10 +20,12 @@
 
 
   <div ng-if="showStack">
-    <h5 class="stackoverflow">-------------------------------</h5>
-    <h2 class="stackoverflow">Not finding what you are looking for from your peers? Check out <strong>stackoverflow</strong> like a pro!:</h2>
-    <div class="stackoverflow">
-        <input ng-model="stackSearch" placeholder="Filter stackoverflow questions" />
+
+   <!--  <h5 class="stackoverflow page-header"></h5> -->
+    <h2 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h2>
+    <div class="stackoverflow" ng-hide="showSadface">
+        <input ng-model="stackSearch" placeholder="Search {{forum}}-related stackoverflow questions" class="form-control" />
+
     </div>
     <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch">
       
@@ -62,7 +64,7 @@
     <!-- a link to go back to all forums -->
     <div class="forums">
       <p>
-        <a ng-click="forumDeselect()">All Questions</a>
+        <a ng-click="forumDeselect(); showSadface = false">All Questions</a>
       </p>
     </div>
 

@@ -10,7 +10,7 @@ angular.module('hackoverflow.services', [])
     if(forum === 'RESTful API'){
       forum = 'REST';
     }
-    console.log('fourm', forum)
+    console.log('forum', forum)
     min = min || 5;
     var url = 'http://api.stackexchange.com/2.2/questions?order=desc&min='+min+'&sort=votes&tagged='+forum+'&site=stackoverflow&callback=JSON_CALLBACK';
     console.log(url)
