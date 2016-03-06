@@ -92,6 +92,7 @@ code {
   .newNav{
     display: inline;
   }
+
 }
 
 @media only screen and (max-width: 485px) {
@@ -104,4 +105,13 @@ code {
   .user-thumbnail{
     display: none;
   }
+  .logout{
+  position: fixed;
+  padding-right: 5px;
 }
+}
+.sidebar{
+  position: fixed;
+  padding-right: 10px;
+}
+
