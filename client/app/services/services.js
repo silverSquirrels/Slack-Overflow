@@ -3,7 +3,21 @@ angular.module('hackoverflow.services', [])
 // POSTS
 
 .factory('Posts', function($http) {
+/////////
+  var url = 'http://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=backbone&site=stackoverflow&callback=JSON_CALLBACK';
 
+  var getJson = function(){
+    return $http.jsonp(url).
+    success(function(data, status, headers, config) {
+        console.log('success', data);
+    }).
+    error(function(data, status, headers, config) {
+        console.log('error', data);
+    });
+  };
+
+  getJson();
+/////////
   var getForums = function() {
     return $http({
       method: 'GET',
