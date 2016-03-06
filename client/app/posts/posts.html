@@ -23,9 +23,9 @@
     <h5 class="stackoverflow">-------------------------------</h5>
     <h2 class="stackoverflow">Not finding what you are looking for from your peers? Check out <strong>stackoverflow</strong> like a pro!:</h2>
     <div class="stackoverflow">
-        <input placeholder="Search" />
+        <input ng-model="stackSearch" placeholder="Filter stackoverflow questions" />
     </div>
-    <div class="stackoverflow" ng-repeat="question in stackJSON">
+    <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch">
       
       <p><a href="{{question.link}}">{{question.title}}</a><p>
     </div>
