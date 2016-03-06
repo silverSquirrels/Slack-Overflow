@@ -9,10 +9,23 @@
       </a>
     </div>
 
-      <nav>
+      <nav class="fullNav">
         <a ui-sref="add-post">Ask a Question</a>
 
         <a onClick="location.reload();">Logout</a> ({{$root.user}})
+        <img class="user-thumbnail" src={{$root.picture}} />
+      </nav>
+
+      <nav class="newNav">
+
+        <a ui-sref="add-post">
+          <img src="../assets//images/ask.png" height="20" width="20" />
+        </a>
+
+        <a onClick="location.reload();">
+          <img src="../assets//images/logout.png" height="20" width="20" />
+        </a>
+
         <img class="user-thumbnail" src={{$root.picture}} />
       </nav>
 
