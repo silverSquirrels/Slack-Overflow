@@ -4,19 +4,27 @@ angular.module('hackoverflow.services', [])
 
 .factory('Posts', function($http) {
 /////////
-  var url = 'http://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=backbone&site=stackoverflow&callback=JSON_CALLBACK';
+  
 
-  var getJson = function(){
+  var getStackOverflowJSON = function(forum, min){
+    if(forum === 'RESTful API'){
+      forum = 'REST';
+    }
+    console.log('fourm', forum)
+    min = min || 5;
+    var url = 'http://api.stackexchange.com/2.2/questions?order=desc&min='+min+'&sort=votes&tagged='+forum+'&site=stackoverflow&callback=JSON_CALLBACK';
+    console.log(url)
+
     return $http.jsonp(url).
     success(function(data, status, headers, config) {
         console.log('success', data);
+        return data;
     }).
     error(function(data, status, headers, config) {
         console.log('error', data);
     });
   };
 
-  getJson();
 /////////
   var getForums = function() {
     return $http({
@@ -87,7 +95,8 @@ angular.module('hackoverflow.services', [])
     getPosts: getPosts,
     createPost: createPost,
     editPost: editPost,
-    deletePost: deletePost
+    deletePost: deletePost,
+    getStackOverflowJSON: getStackOverflowJSON
   };
 })
 
