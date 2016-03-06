@@ -24,8 +24,13 @@ angular.module('hackoverflow.comments', [
     // console.log('commentId: ', commentId);
     // console.log('postId: ', postId);
     // console.log('user: ', user);
-    Comments.upVote(postId, commentId, user);
-    //console.log('this.votes: ', this.votes);
+    Comments.upVote(postId, commentId, user)
+    .then(function(response){
+      console.log('response in controller!!!!', response);
+      //$scope.numVotes = response;
+
+      $scope.getComments();
+    });
   };
   
   //
@@ -36,7 +41,9 @@ angular.module('hackoverflow.comments', [
       $scope.comments = data.data;
     });
     hljs.initHighlightingOnLoad();
+
   };
+
 
   $scope.deleteComment = function deleteComment(postId, commentId) {
     Comments.deleteComment(postId, commentId);
@@ -55,5 +62,5 @@ angular.module('hackoverflow.comments', [
   };
 
   $scope.getComments();
-
+  console.log('all the comments', $scope.comments)
 });

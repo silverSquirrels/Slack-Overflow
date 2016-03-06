@@ -118,14 +118,13 @@ angular.module('hackoverflow.services', [])
   };
 
   var upVote = function(postId, commentId, user) {
-    //console.log('commentID: ',commentId);
-    console.log('user: ', user);
     var userObj = { user: user };
-    console.log('userObj: ', userObj);
     return $http({
       method: 'POST',
       url: '/api/post/' +postId + '/comments/' + commentId,
       data: userObj
+    }).then(function(response, err){
+      return response.data.num;
     });
   };
 

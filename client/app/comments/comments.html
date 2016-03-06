@@ -43,8 +43,8 @@
         </div>
         
         <div>
-          <span ng-click="upVote(post._id, comment._id, $root.user)"> Vote </span>
-          <span> Votes Length: {{ comment.votes.length }} </span>
+          <a ng-click="upVote(post._id, comment._id, $root.user)"><i class="fa fa-thumbs-o-up"></i> Upthumb</a>
+          <span> | Thumbs: {{ comment.votes.length }} </span>
         </div>
         
         <!-- <div class='vote-box'>
