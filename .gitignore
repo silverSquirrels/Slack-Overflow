@@ -10,5 +10,5 @@ dist/
 
 server/config/config.js
 
-client/lib/font-awesome
+
 client/lib/mobile-angular-ui/

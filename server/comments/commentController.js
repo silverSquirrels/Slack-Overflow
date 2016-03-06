@@ -66,12 +66,10 @@ module.exports = {
       if (err) {
         next(new Error(err)); 
       }
-      console.log('foundComm: ',foundComm);
-      console.log('votes: ', foundComm.votes);
       foundComm.votes.addToSet(request.body.user);
       foundComm.save();
-      console.log('votes: ', foundComm.votes);
-      response.status(202).send(foundComm.votes);
+      var voteNumObject = {num: foundComm.votes.length};
+      response.status(202).send(voteNumObject);
     });
     
   }
