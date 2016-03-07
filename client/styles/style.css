@@ -15,6 +15,7 @@ h2 {
   max-width: 840px;
   margin: 0 auto;
   padding: 0 40px;
+  padding-right: 0px;
 }
 
 #main {
@@ -106,9 +107,9 @@ code {
     display: none;
   }
   .logout{
-  position: fixed;
+
   padding-right: 5px;
-}
+  }
 }
 .sidebar{
   position: fixed;
@@ -116,6 +117,6 @@ code {
 }
 
 .search{
-  margin-top: 30%;
+  margin-top: 7em;
   margin-bottom: 0px;
 }
