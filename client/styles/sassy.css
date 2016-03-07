@@ -25,5 +25,19 @@ a {
   padding: 5px;
   margin: 0 0 3px 0; }
 
+<<<<<<< 077dd9f9dd552d8afb5364328ec4af88f24ee5a1
 .sidebar {
   margin-right: 80px !important; }
+=======
+.pipe {
+  border-right: 1px dotted black; }
+
+.stackoverflow li a {
+  color: #285f8f !important; }
+
+#order-by {
+  color: black !important; }
+
+a:active {
+  column-rule: #c7ddef; }
+>>>>>>> (feat) user can order api feed by score, answers, and viewcount

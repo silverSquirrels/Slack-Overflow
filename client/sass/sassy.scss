@@ -1,7 +1,10 @@
 $width-thumb: 45px;
 $height-thumb: 45px;
-
 $diff: 10px;
+$answer-color: #337ab7;
+
+$a-c-dark: darken( $answer-color, 10% );
+$a-c-light: lighten( $answer-color, 40% );
 
 .user-thumbnail {
   border-radius: 50%;
@@ -17,7 +20,6 @@ $diff: 10px;
   height: $height-thumb - $diff;
 
 }
-
 
 a {
   cursor: pointer;
@@ -41,6 +43,26 @@ a {
   margin: 0 0 3px 0;
 }
 
+<<<<<<< 077dd9f9dd552d8afb5364328ec4af88f24ee5a1
 .sidebar {
   margin-right: 80px !important;
 }
+=======
+.pipe {
+  border-right: 1px dotted black;
+}
+
+.stackoverflow li a {
+  color: $a-c-dark !important;
+  // font-weight: bold;
+}
+
+#order-by {
+  color: black !important;
+  // text-decoration: underline;
+}
+a:active {
+  column-rule: $a-c-light;
+}
+
+>>>>>>> (feat) user can order api feed by score, answers, and viewcount

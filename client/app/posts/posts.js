@@ -1,7 +1,6 @@
 angular.module('hackoverflow.posts', [
   'hackoverflow.services',
-  'ui.router',
-  'ui-bootstrap'
+  'ui.router'
 ])
 
 .config(function ($httpProvider, $urlRouterProvider, $stateProvider) {
@@ -18,11 +17,25 @@ angular.module('hackoverflow.posts', [
   $scope.forumSelected = false; // a.k.a disableFilter
   $scope.showStack = false;
   $scope.showSadface = false;
+  $scope.orderSelect = 'score';
 
-   // $scope.$watch($scope.showSO, function() {
-   //      alert('hey, showSO has changed!', showSO);
-   //  });
- 
+   $scope.selectScore = function () {
+      $scope.orderSelect = 'score';
+   };
+   $scope.selectNumAnswers = function () {
+      console.log('called')
+      $scope.orderSelect = 'answer_count';
+      console.log($scope.orderSelect)
+   };
+   $scope.selectViewCount = function () {
+      $scope.orderSelect = 'view_count';
+   };
+
+    $scope.$watch('$scope.orderSelect', function() {
+        console.log('hey, OS has changed!');
+        console.log($scope.orderSelect)
+    });
+
 
   $scope.forumSelect = function() {
     $scope.showStack = true;
