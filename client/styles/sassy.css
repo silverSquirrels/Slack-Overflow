@@ -39,3 +39,11 @@ a {
 
 a:active {
   column-rule: #c7ddef; }
+
+.back-button {
+  margin-left: 3px; }
+  .back-button a:hover {
+    color: black; }
+
+.sidebar {
+  font-size: 120%; }

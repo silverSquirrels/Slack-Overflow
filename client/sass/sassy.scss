@@ -65,4 +65,15 @@ a:active {
   column-rule: $a-c-light;
 }
 
+.back-button {
+  margin-left: 3px;
+
+  a:hover {
+    color: black;
+  }
+}
+
+.sidebar {
+  font-size: 120%;
+}
 

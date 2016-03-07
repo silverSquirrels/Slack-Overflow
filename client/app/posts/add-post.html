@@ -2,7 +2,7 @@
 
 <div id="add-post-container">
   
-  <button type="submit">
+  <button class='back-button' type="submit">
     <a ui-sref="posts">Go Back</a>
   </button>
     
@@ -12,15 +12,16 @@
     <div class="add-post">
 
       <input    ng-model="title"
-                class="boxsizingBorder"
+                class="boxsizingBorder form-control"
                 required
                 placeholder="Ask your question"/>
 
       <textarea ng-model="body"
-                class="boxsizingBorder"
+                class="boxsizingBorder form-control"
                 placeholder="Feel free to elaborate"></textarea>
 
-      <select   ng-model="forum"
+      <select   
+                ng-model="forum"
                 ng-init="somethingHere = options[0]"
                 ng-options="forum for forum in forums"></select>
                 
