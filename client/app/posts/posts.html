@@ -24,16 +24,16 @@
    <!--  <h5 class="stackoverflow page-header"></h5> -->
     <h3 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h3>
 
-     <div class="stackoverflow">
-      <ul class='nav nav-pills'>
-        <li><a ng-click="getStackOverflowJSON(forum)">Answered questions</a></li>
-        <li><a ng-click="getStackOverflowJSON(forum, 0, 'unanswered')">Build your reputation! (Unanswered questions)</a></li>
-      </ul> 
-    </div>
-
     <div class="stackoverflow" ng-hide="showSadface">
         <input ng-model="stackSearch" placeholder="Search {{forum}}-related stackoverflow questions" class="form-control" />
 
+    </div>
+
+     <div class="stackoverflow">
+      <ul class='nav nav-tabs'>
+        <li role="presentation" class="active"><a ng-click="getStackOverflowJSON(forum)">Answered questions</a></li>
+        <li role="presentation" ><a ng-click="getStackOverflowJSON(forum, 0, 'unanswered')">Build your reputation! (Unanswered questions)</a></li>
+      </ul> 
     </div>
    
     <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch">
