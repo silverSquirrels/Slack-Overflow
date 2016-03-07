@@ -22,19 +22,39 @@
   <div ng-if="showStack">
 
    <!--  <h5 class="stackoverflow page-header"></h5> -->
-    <h2 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h2>
+    <h3 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h3>
+
+     <div class="stackoverflow">
+      <ul class='nav nav-pills'>
+        <li><a ng-click="getStackOverflowJSON(forum)">Answered questions</a></li>
+        <li><a ng-click="getStackOverflowJSON(forum, 0, 'unanswered')">Build your reputation! (Unanswered questions)</a></li>
+      </ul> 
+    </div>
+
     <div class="stackoverflow" ng-hide="showSadface">
         <input ng-model="stackSearch" placeholder="Search {{forum}}-related stackoverflow questions" class="form-control" />
 
     </div>
+   
     <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch">
-      
-      <p><a href="{{question.link}}">{{question.title}}</a><p>
+
+      <p>
+      <!-- ng-bind-html renders escaped HTML chars correctly to the page -->
+        <a href="{{question.link}}"><strong>Question:</strong><span ng-bind-html="question.title"> {{question.title}}</span></a>
+        <br/>
+        <small><strong>score: </strong> {{question.score}} |</small>
+        <small><strong>number of answers:</strong> {{question.answer_count}} |</small>
+        <small><strong>view count:</strong> {{ question.view_count}}</small>
+        <br />
+        <small><strong>tags:</strong> {{question.tags.toString()}}</small>
+
+      </p>
+
     </div>
   </div>
 
    <div class="stackoverflow" ng-show="showSadface">
-    <h4><i class="fa fa-frown-o fa-5x fa-spin"> </i> sorry no answers on stackoverflow</h4> 
+    <h4><i class="fa fa-frown-o fa-4x fa-spin"> </i> sorry no answers on stackoverflow</h4> 
   </div>
 
 

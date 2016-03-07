@@ -6,24 +6,29 @@ angular.module('hackoverflow.services', [])
 /////////
   
 
-  var getStackOverflowJSON = function(forum, min){
+  var getStackOverflowJSON = function(forum, min, endpoint){
     if(forum === 'RESTful API'){
       forum = 'REST';
     }
-    console.log('forum', forum)
     min = min || 5;
+    // get answered questions:
     var url = 'http://api.stackexchange.com/2.2/questions?order=desc&min='+min+'&sort=votes&tagged='+forum+'&site=stackoverflow&callback=JSON_CALLBACK';
-    console.log(url)
+    // get unanswered questions:
+    if (endpoint === 'unanswered') {
+      console.log('endpoin is unanswered')
+      url = 'http://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+forum+'&site=stackoverflow&callback=JSON_CALLBACK';
+    }
 
     return $http.jsonp(url).
     success(function(data, status, headers, config) {
-        console.log('success', data);
+        console.log(endpoint, data)
         return data;
     }).
     error(function(data, status, headers, config) {
         console.log('error', data);
     });
   };
+
 
 /////////
   var getForums = function() {

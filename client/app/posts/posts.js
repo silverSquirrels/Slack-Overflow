@@ -26,37 +26,27 @@ angular.module('hackoverflow.posts', [
   $scope.forumSelect = function() {
     $scope.showStack = true;
     $scope.forumSelected  = true;
-    console.log('bool', $scope.forumSelected);
   };
   $scope.forumDeselect = function() {
     $scope.showStack = false;
     $scope.forumSelected = false;
-    console.log($scope.forumSelected)
   };
-  $scope.getStackOverflowJSON = function(forum, min){
-    console.log('forum in controller', forum)
-    Posts.getStackOverflowJSON(forum)
+  $scope.getStackOverflowJSON = function(forum, min, endpoint){
+    Posts.getStackOverflowJSON(forum, min, endpoint)
     .then(function(data){
       $scope.showSadface = false;
-      console.log('data.data.ITEMS! in controller', data.data.items)
       $scope.stackJSON = data.data.items;
-      console.log($scope.showSadface)
-      console.log('the LENGTH',$scope.stackJSON.length);
       if($scope.stackJSON.length === 0){
         $scope.showSadface = true;
       }
-      console.log($scope.showSadface)
     });
   };
 
- // $scope.getStackOverflowJSON(); 
 
   $scope.getPosts = function getPosts(forum) {
     // TODO: need to pass in forum to Posts.getPosts()
     Posts.getPosts('').then(function (data) {
-      console.log('DATA',data.data)
       $scope.posts = data.data;
-      console.log($scope.posts)
       // this creates an object $scope.numberOfComments that
       // keeps track of each posts number of comments. not
       // ideal, but works. need to refactor how we go
