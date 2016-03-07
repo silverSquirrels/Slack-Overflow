@@ -1,6 +1,7 @@
 angular.module('hackoverflow.posts', [
   'hackoverflow.services',
-  'ui.router'
+  'ui.router',
+  'ui-bootstrap'
 ])
 
 .config(function ($httpProvider, $urlRouterProvider, $stateProvider) {
