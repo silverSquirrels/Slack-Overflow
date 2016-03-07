@@ -3,7 +3,34 @@ angular.module('hackoverflow.services', [])
 // POSTS
 
 .factory('Posts', function($http) {
+/////////
+  
 
+  var getStackOverflowJSON = function(forum, min, endpoint){
+    if(forum === 'RESTful API'){
+      forum = 'REST';
+    }
+    min = min || 5;
+    // get answered questions:
+    var url = 'http://api.stackexchange.com/2.2/questions?order=desc&min='+min+'&sort=votes&tagged='+forum+'&site=stackoverflow&callback=JSON_CALLBACK';
+    // get unanswered questions:
+    if (endpoint === 'unanswered') {
+      console.log('endpoin is unanswered')
+      url = 'http://api.stackexchange.com/2.2/questions/unanswered?order=desc&sort=activity&tagged='+forum+'&site=stackoverflow&callback=JSON_CALLBACK';
+    }
+
+    return $http.jsonp(url).
+    success(function(data, status, headers, config) {
+        console.log(endpoint, data)
+        return data;
+    }).
+    error(function(data, status, headers, config) {
+        console.log('error', data);
+    });
+  };
+
+
+/////////
   var getForums = function() {
     return $http({
       method: 'GET',
@@ -73,7 +100,8 @@ angular.module('hackoverflow.services', [])
     getPosts: getPosts,
     createPost: createPost,
     editPost: editPost,
-    deletePost: deletePost
+    deletePost: deletePost,
+    getStackOverflowJSON: getStackOverflowJSON
   };
 })
 
@@ -211,4 +239,17 @@ angular.module('hackoverflow.services', [])
   return {
     currentForum: currentForum
   };
-}]);
+}])
+
+.directive('toggleClass', function() {
+  console.log('clicked')
+  return {
+    restrict: 'A',
+      link: function(scope, element, attrs) {
+        element.bind('click', function() {
+          element.toggleClass(attrs.toggleClass);
+          element.addClass("test")
+        });
+      }
+    };
+});

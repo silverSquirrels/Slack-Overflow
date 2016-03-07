@@ -18,9 +18,60 @@
       </p>
   </div>
 
+
+  <div ng-if="showStack">
+
+   <!--  <h5 class="stackoverflow page-header"></h5> -->
+    <h3 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h3>
+
+    <div class="stackoverflow" ng-hide="showSadface">
+        <input ng-model="stackSearch" placeholder="Search {{forum}}-related stackoverflow questions" class="form-control" />
+
+    </div>
+
+     <div class="stackoverflow">
+      <ul class='nav nav-tabs'>
+
+        <li role="presentation"><a ng-click="getStackOverflowJSON(forum)">Answered questions</a></li>
+        <li role="presentation" ><a ng-click="getStackOverflowJSON(forum, 0, 'unanswered')">Build your reputation! (Unanswered questions)</a></li>
+      </ul> 
+    </div>
+
+    <div class="stackoverflow">
+      
+      <ul class="nav nav-tabs">
+        <li  role="presentation"><a id="order-by">Order by:</a></li>
+        <li role="presentation"><a ng-click="selectScore()">score</a></li>
+        <li role="presentation"><a ng-click="selectNumAnswers()">number of answers</a></li>
+        <li role="presentation"><a ng-click="selectViewCount()">view count</a></li>
+      </ul>
+    </div>
+   
+    <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch | orderBy: '-'+orderSelect" >
+      <p>
+      <!-- ng-bind-html renders escaped HTML chars correctly to the page -->
+        <a href="{{question.link}}"><strong>Question:</strong><span ng-bind-html="question.title"> {{question.title}}</span></a>
+        <br/>
+        <small><strong>score: </strong> {{question.score}} |</small>
+        <small><strong>number of answers:</strong> {{question.answer_count}} |</small>
+        <small><strong>view count:</strong> {{ question.view_count}}</small>
+        <br />
+        <small><strong>tags:</strong> {{question.tags.toString()}}</small>
+
+      </p>
+
+    </div>
+  </div>
+
+   <div class="stackoverflow" ng-show="showSadface">
+    <h4><i class="fa fa-frown-o fa-4x fa-spin"> </i> sorry no answers on stackoverflow</h4> 
+  </div>
+
+
+<!-- sidebar begin: -->
   <div class="sidebar">
     <div class="search">
-      <input ng-model="searchFor" placeholder="Search" />
+      <input class="form-control" ng-model="searchFor" placeholder="Search" />
     </div>
 
     <br />
@@ -43,14 +94,14 @@
     <!-- a link to go back to all forums -->
     <div class="forums">
       <p>
-        <a ng-click="forumDeselect()">All Questions</a>
+        <a ng-click="forumDeselect(); showSadface = false">All Questions</a>
       </p>
     </div>
 
     <div class="forums" ng-repeat="forum in forums">
 
       <p>
-        <a ng-click="switchForum(forum); forumSelect()">{{ forum }}</a>
+        <a ng-click="switchForum(forum); forumSelect(); getStackOverflowJSON(forum)">{{ forum }}</a>
       </p>
     </div>
 

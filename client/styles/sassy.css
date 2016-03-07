@@ -13,3 +13,29 @@ a {
 
 .questions-text {
   margin-top: -18px !important; }
+
+.posts, .stackoverflow {
+  float: left;
+  width: 65%;
+  margin: 0 0 20px 0;
+  padding: 20px;
+  background-color: #f5f5f5; }
+
+.stackoverflow {
+  padding: 5px;
+  margin: 0 0 3px 0; }
+
+.sidebar-me {
+  margin-right: 80px !important; }
+
+.pipe {
+  border-right: 1px dotted black; }
+
+.stackoverflow li a {
+  color: #285f8f !important; }
+
+#order-by {
+  color: black !important; }
+
+a:active {
+  column-rule: #c7ddef; }

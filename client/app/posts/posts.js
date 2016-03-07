@@ -15,21 +15,52 @@ angular.module('hackoverflow.posts', [
   /// add boolean to control whether or not to filter posts
   /// so when user lands on page or clicks 'all forums / homepage' all posts are listed
   $scope.forumSelected = false; // a.k.a disableFilter
+  $scope.showStack = false;
+  $scope.showSadface = false;
+  $scope.orderSelect = 'score';
+
+   $scope.selectScore = function () {
+      $scope.orderSelect = 'score';
+   };
+   $scope.selectNumAnswers = function () {
+      console.log('called')
+      $scope.orderSelect = 'answer_count';
+      console.log($scope.orderSelect)
+   };
+   $scope.selectViewCount = function () {
+      $scope.orderSelect = 'view_count';
+   };
+
+    $scope.$watch('$scope.orderSelect', function() {
+        console.log('hey, OS has changed!');
+        console.log($scope.orderSelect)
+    });
+
+
   $scope.forumSelect = function() {
+    $scope.showStack = true;
     $scope.forumSelected  = true;
-    console.log('bool', $scope.forumSelected);
   };
   $scope.forumDeselect = function() {
+    $scope.showStack = false;
     $scope.forumSelected = false;
-    console.log($scope.forumSelected)
   };
+  $scope.getStackOverflowJSON = function(forum, min, endpoint){
+    Posts.getStackOverflowJSON(forum, min, endpoint)
+    .then(function(data){
+      $scope.showSadface = false;
+      $scope.stackJSON = data.data.items;
+      if($scope.stackJSON.length === 0){
+        $scope.showSadface = true;
+      }
+    });
+  };
+
 
   $scope.getPosts = function getPosts(forum) {
     // TODO: need to pass in forum to Posts.getPosts()
     Posts.getPosts('').then(function (data) {
-      console.log('DATA',data.data)
       $scope.posts = data.data;
-      console.log($scope.posts)
       // this creates an object $scope.numberOfComments that
       // keeps track of each posts number of comments. not
       // ideal, but works. need to refactor how we go
