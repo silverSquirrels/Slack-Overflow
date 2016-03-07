@@ -25,10 +25,9 @@ a {
   padding: 5px;
   margin: 0 0 3px 0; }
 
-<<<<<<< 077dd9f9dd552d8afb5364328ec4af88f24ee5a1
-.sidebar {
+.sidebar-me {
   margin-right: 80px !important; }
-=======
+
 .pipe {
   border-right: 1px dotted black; }
 
@@ -40,4 +39,3 @@ a {
 
 a:active {
   column-rule: #c7ddef; }
->>>>>>> (feat) user can order api feed by score, answers, and viewcount

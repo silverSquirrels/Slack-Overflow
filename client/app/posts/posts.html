@@ -31,11 +31,8 @@
 
      <div class="stackoverflow">
       <ul class='nav nav-tabs'>
-<<<<<<< 077dd9f9dd552d8afb5364328ec4af88f24ee5a1
-        <li role="presentation" class="active"><a ng-click="getStackOverflowJSON(forum)">Answered questions</a></li>
-=======
+
         <li role="presentation"><a ng-click="getStackOverflowJSON(forum)">Answered questions</a></li>
->>>>>>> (feat) user can order api feed by score, answers, and viewcount
         <li role="presentation" ><a ng-click="getStackOverflowJSON(forum, 0, 'unanswered')">Build your reputation! (Unanswered questions)</a></li>
       </ul> 
     </div>
@@ -50,12 +47,7 @@
       </ul>
     </div>
    
-<<<<<<< 077dd9f9dd552d8afb5364328ec4af88f24ee5a1
-    <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch">
-
-=======
     <div class="stackoverflow" ng-repeat="question in stackJSON | filter: stackSearch | orderBy: '-'+orderSelect" >
->>>>>>> (feat) user can order api feed by score, answers, and viewcount
       <p>
       <!-- ng-bind-html renders escaped HTML chars correctly to the page -->
         <a href="{{question.link}}"><strong>Question:</strong><span ng-bind-html="question.title"> {{question.title}}</span></a>
@@ -79,7 +71,7 @@
 <!-- sidebar begin: -->
   <div class="sidebar">
     <div class="search">
-      <input ng-model="searchFor" placeholder="Search" />
+      <input class="form-control" ng-model="searchFor" placeholder="Search" />
     </div>
 
     <br />
