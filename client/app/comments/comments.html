@@ -45,7 +45,7 @@
         </div>
         
         <div>
-          <a ng-click="upVote(post._id, comment._id, $root.user)"><i class="fa fa-thumbs-o-up"></i> Upthumb</a>
+          <a ng-click="upVote(post._id, comment._id, $root.user)"><i class="fa fa-thumbs-o-up" ng-class="{'upvoted': comment.votes.indexOf($root.user)>=0}"></i> Upthumb</a>
           <span> | Thumbs: {{ comment.votes.length }} </span>
         </div>
         
