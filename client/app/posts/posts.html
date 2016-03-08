@@ -22,11 +22,19 @@
   <div ng-if="showStack">
 
    <!--  <h5 class="stackoverflow page-header"></h5> -->
-    <h3 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h3>
-
+    
+      <h3 class="stackoverflow well" ng-hide="showSadface">Not finding what you are looking for from your peers? Pro tip: check out <strong>stackoverflow!</strong>:</h3>
+    <div class='stackoverflow'>
+      <ul class='nav nav-tabs'>
+        <li role="presentation"><a ng-model='showStackOv' ng-click='showStackOv = true'> Show </a>  </li>
+      
+        <li role="presentation"><a ng-click='showStackOv = false'> Hide </a> </li>
+        </ul>
+    </div>
+<!-- Collapsible menu -->
+  <div ng-show='showStackOv'>
     <div class="stackoverflow" ng-hide="showSadface">
         <input ng-model="stackSearch" placeholder="Search {{forum}}-related stackoverflow questions" class="form-control" />
-
     </div>
 
      <div class="stackoverflow">
@@ -61,6 +69,8 @@
       </p>
 
     </div>
+  </div>  
+    <!-- End collapsible menu -->
   </div>
 
    <div class="stackoverflow" ng-show="showSadface">
