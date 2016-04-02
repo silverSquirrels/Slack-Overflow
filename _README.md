@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: Aimee Rosato
-  - __Scrum Master__: Dan Molitor
-  - __Development Team Members__: Chris Patton, Michael Dziedzic
+  - __Product Owner__: Michael Frazier  
+  - __Scrum Master__: Eric Broberg
+  - __Development Team Members__: Colton Savage, Andrew Vedady
 
 ## Table of Contents
 
@@ -46,6 +46,14 @@ npm install moment
 bower install --save moment
 npm install colors
 ```
+
+### Gulp
+
+From root directory:
+
+```gulp```
+
+Will concat and minify CSS and JS files, auto-transpile Sass to CSS, automatically inject <link> and <script> tags into client/index.html, and start a nodemon server.
 
 ### Roadmap
 
