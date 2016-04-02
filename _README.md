@@ -54,7 +54,8 @@ From root directory:
 ```sh
 gulp
 ```
-Will concat and minify CSS and JS files, auto-transpile Sass to CSS, automatically inject <link> and <script> tags into client/index.html, and start a nodemon server.
+
+Will concat and minify CSS and JS files, auto-transpile Sass to CSS, automatically inject link and script tags into client/index.html, and start a nodemon server.
 
 
 ### Roadmap
