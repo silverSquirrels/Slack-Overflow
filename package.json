@@ -2,7 +2,7 @@
   "name": "hackoverflow",
   "version": "0.0.0",
   "engines": {
-    "node": "4.3.0",
+    "node": "4.8.4",
     "npm": "3.7.2"
   },
   "description": "",
